@@ -14,23 +14,34 @@
     currentIndex = 0,
     $container = $(opts.container),
     $image,
+    $caption,
     imgArrSize = imgArr.length,
     currentImg;
 
     // set up the image element
-    $container.append('<img>');
-    $image = $container.children('img');
+    $image = $('<img>').appendTo($container);
+    $caption = $('<div>').appendTo($container);
 
     function plugin(){
 
       // set the image source to the currentImg
       // object's href value
       currentImg = imgArr[currentIndex];
-      $image.attr('src', currentImg.href);
 
-      // sleep if the currentImg object requests a pause
+      // add the caption text
+      $image.attr('src', currentImg.href);
+      if (currentImg.caption) {
+        $caption.text(currentImg.caption);
+      } else {
+        $caption.text('');
+      }
+
+      // pause if the currentImg object requests it, otherwise
+      // recurseively call the function with the normal delay
       if (currentImg.pause) {
-        $.flipbooker.sleep(currentImg.pause);
+        looper = setTimeout(plugin, currentImg.pause);
+      } else {
+        looper = setTimeout(plugin, opts.delay);
       }
 
       // move onto the next image object
@@ -50,15 +61,15 @@
       }
     }
 
-    // loop through the plugin action
-    var looper = setInterval(plugin, opts.delay);
+    // start the initial loop
+    var looper = setTimeout(plugin, opts.delay);
 
     // listen for events
     $(window).on('pause:flipbooker', function(){
-      clearInterval(looper);
+      clearTimeout(looper);
     });
     $(window).on('play:flipbooker', function(){
-      looper = setInterval(plugin, opts.delay);
+      looper = setTimeout(plugin, opts.delay);
     });
 
   };
@@ -70,15 +81,6 @@
 
   $.flipbooker.play = function(){
     $(window).trigger('play:flipbooker');
-  };
-
-  $.flipbooker.sleep = function(milliseconds){
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
-        break;
-      }
-    }
   };
 
   $.flipbooker.defaults = {
