@@ -56,6 +56,22 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
     },
+    qunit: {
+      all: {
+        options: {
+          urls: ['1.9.0', '2.0.0b1'].map(function(version){
+            return 'http://localhost:<%= connect.server.options.port %>/test/<%= pkg.name %>.html?jquery=' + version;
+          }),
+        }
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 7000
+        }
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -78,9 +94,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
+  grunt.registerTask('test', ['connect', 'jshint', 'qunit']);
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
 
 };
