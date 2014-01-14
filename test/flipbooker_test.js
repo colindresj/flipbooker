@@ -17,14 +17,13 @@
   });
 
   test('ovrrides the defaults with options', function() {
-    expect(1);
-    ok(
-      $.flipbooker(this.arr, {
-        container: '#qunit-fixture',
-        delay: 100
-      }),
-      'accepts options'
-    );
+    expect(2);
+    $.flipbooker(this.arr, {
+        container: '#qunit-fixture'
+      });
+
+    ok($('#qunit-fixture').children('img'), 'overriden container has an image element');
+    ok($('#qunit-fixture').children('div'), 'overriden container has a div element');
   });
 
 
