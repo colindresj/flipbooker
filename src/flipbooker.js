@@ -57,7 +57,7 @@
     $(window).on('pause:flipbooker', function(){
       clearInterval(looper);
     });
-    $(window).on('unpause:flipbooker', function(){
+    $(window).on('play:flipbooker', function(){
       looper = setInterval(plugin, opts.delay);
     });
 
@@ -68,8 +68,8 @@
     $(window).trigger('pause:flipbooker');
   };
 
-  $.flipbooker.unpause = function(){
-    $(window).trigger('unpause:flipbooker');
+  $.flipbooker.play = function(){
+    $(window).trigger('play:flipbooker');
   };
 
   $.flipbooker.sleep = function(milliseconds){
