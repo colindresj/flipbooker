@@ -8,12 +8,13 @@
 
 (function($) {
 
-  $.fn.flipbooker = function(elems, delay) {
+  $.flipbooker = function(imgArr, options) {
 
-    var currentIndex = 0,
-    $container = this,
+    var opts = $.extend(true, {}, $.flipbooker.defaults, options),
+    currentIndex = 0,
+    $container = $(opts.container),
     $image,
-    elemsLength = elems.length,
+    imgArrSize = imgArr.length,
     currentImg;
 
     // set up the image element
@@ -22,23 +23,33 @@
 
     setInterval(function(){
 
-      currentImg = elems[currentIndex];
+      // set the image source to the currentImg
+      // object's href value
+      currentImg = imgArr[currentIndex];
       $image.attr('src', currentImg.href);
 
+      // sleep if the currentImg object requests a pause
       if (currentImg.pause) {
         $.sleep(currentImg.pause);
       }
 
+      // move onto the next image object
       currentIndex++;
 
       // loop
-      if (currentIndex >= elemsLength) {
+      if (currentIndex >= imgArrSize) {
         currentIndex = 0;
       }
 
-    }, delay);
+    }, opts.delay);
 
     return this;
+  };
+
+  $.flipbooker.defaults = {
+    container: '#slideshow',
+    loop: true,
+    delay: 50
   };
 
   $.sleep = function(milliseconds){
