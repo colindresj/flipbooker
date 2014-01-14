@@ -21,7 +21,7 @@
     $container.append('<img>');
     $image = $container.children('img');
 
-    var looper = setInterval(function(){
+    function plugin(){
 
       // set the image source to the currentImg
       // object's href value
@@ -49,13 +49,33 @@
           clearInterval(looper);
         }
       }
+    }
 
-    }, opts.delay);
+    // loop through the plugin action
+    var looper = setInterval(plugin, opts.delay);
+
+    // listen for events
+    $(window).on('pause:flipbooker', function(){
+      clearInterval(looper);
+    });
+
+    //
+    $(window).on('unpause:flipbooker', function(){
+      looper = setInterval(plugin, opts.delay);
+    });
 
   };
 
+  $.flipbooker.pause = function(){
+    $(window).trigger('pause:flipbooker');
+  };
+
+  $.flipbooker.unpause = function(){
+    $(window).trigger('unpause:flipbooker');
+  };
+
   $.flipbooker.defaults = {
-    container: '#slideshow',
+    container: '#flipbook',
     loop: true,
     delay: 50,
     cb: function(){}
