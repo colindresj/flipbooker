@@ -39,6 +39,7 @@
       // loop
       if (currentIndex >= imgArrSize) {
         currentIndex = 0;
+        opts.cb.call(this);
       }
 
     }, opts.delay);
@@ -49,7 +50,8 @@
   $.flipbooker.defaults = {
     container: '#slideshow',
     loop: true,
-    delay: 50
+    delay: 50,
+    cb: function(){}
   };
 
   $.sleep = function(milliseconds){
