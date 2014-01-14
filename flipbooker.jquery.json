@@ -1,0 +1,27 @@
+{
+  "name": "flipbooker",
+  "title": "Flipbooker",
+  "description": "Create a dynamic flipbook",
+  "version": "0.1.0",
+  "homepage": "https://github.com/corporadobob/flipbooker",
+  "author": {
+    "name": "JC",
+    "email": "jorge.e.colindres@gmail.com",
+    "url": "http://colindres.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/corporadobob/flipbooker.git"
+  },
+  "bugs": "https://github.com/corporadobob/flipbooker/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/corporadobob/flipbooker/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}
