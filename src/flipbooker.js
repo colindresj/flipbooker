@@ -21,7 +21,7 @@
     $container.append('<img>');
     $image = $container.children('img');
 
-    setInterval(function(){
+    var looper = setInterval(function(){
 
       // set the image source to the currentImg
       // object's href value
@@ -36,15 +36,22 @@
       // move onto the next image object
       currentIndex++;
 
-      // loop
+      // after all images have been cycled through
       if (currentIndex >= imgArrSize) {
-        currentIndex = 0;
+
+        // fire callback
         opts.cb.call(this);
+
+        // loop?
+        if (opts.loop) {
+          currentIndex = 0;
+        } else {
+          clearInterval(looper);
+        }
       }
 
     }, opts.delay);
 
-    return this;
   };
 
   $.flipbooker.defaults = {
