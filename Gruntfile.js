@@ -61,7 +61,7 @@ module.exports = function(grunt) {
       },
       src: {
         files: '<%= jshint.src.src %>',
-        tasks: ['jshint:src']
+        tasks: ['jshint:src', 'concat']
       },
       test: {
         files: '<%= jshint.test.src %>',
