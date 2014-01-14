@@ -28,10 +28,9 @@ Include the required scripts and call Flipbooker with an array of image objects 
 ```
 
 ## Documentation
-Flipbooker works by taking an array of image objects, and creates a dynamic flipbook/gif style presentation that is inserted into flipbook  container:
+Flipbooker works by taking an array of image objects, and creates a dynamic flipbook/gif style presentation that is inserted into the flipbook  container:
 
 ```js
-<script>
 $(function(){
   $.flipbooker([
     { href: "http://placehold.it/350x151", caption: 'This is cool', pause: 5000 },
@@ -39,7 +38,6 @@ $(function(){
     { href: "http://placehold.it/350x153"}
   ]);
 });
-</script>
 ```
 
 ###Plugin Options
@@ -49,7 +47,7 @@ Name          | Type          | Default      | Description
 container     | string        | '#flipbook'  | Element selector for your flipbook container
 loop          | boolean       | true         | Run through the presentation in a loop or just a single time
 delay         | number        | 50           | The delay between flipping images
-cb            | function      | function(){} | A callback function that is fired after a presentation runs through all of its images
+cb            | function      | -            | A callback function that is fired after a presentation runs through all of its images
 
 
 ###Image Attributes
@@ -69,7 +67,3 @@ $.flipbooker.pause();
 $.flipbooker.play();
 ```
 These methods work similar to a pub/sub mechanism through the global object, so you are free to use them independent of Flipbooker.
-
-
-## Examples
-_(Coming soon)_
