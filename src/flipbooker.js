@@ -30,7 +30,7 @@
 
       // sleep if the currentImg object requests a pause
       if (currentImg.pause) {
-        $.sleep(currentImg.pause);
+        $.flipbooker.sleep(currentImg.pause);
       }
 
       // move onto the next image object
@@ -39,14 +39,13 @@
       // after all images have been cycled through
       if (currentIndex >= imgArrSize) {
 
-        // fire callback
+        // fire callback and reset the index
         opts.cb.call(this);
+        currentIndex = 0;
 
         // loop?
-        if (opts.loop) {
-          currentIndex = 0;
-        } else {
-          clearInterval(looper);
+        if (!opts.loop) {
+          $.flipbooker.pause();
         }
       }
     }
@@ -58,14 +57,13 @@
     $(window).on('pause:flipbooker', function(){
       clearInterval(looper);
     });
-
-    //
     $(window).on('unpause:flipbooker', function(){
       looper = setInterval(plugin, opts.delay);
     });
 
   };
 
+  // Utilities and defaults
   $.flipbooker.pause = function(){
     $(window).trigger('pause:flipbooker');
   };
@@ -74,20 +72,20 @@
     $(window).trigger('unpause:flipbooker');
   };
 
-  $.flipbooker.defaults = {
-    container: '#flipbook',
-    loop: true,
-    delay: 50,
-    cb: function(){}
-  };
-
-  $.sleep = function(milliseconds){
+  $.flipbooker.sleep = function(milliseconds){
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
       if ((new Date().getTime() - start) > milliseconds){
         break;
       }
     }
+  };
+
+  $.flipbooker.defaults = {
+    container: '#flipbook',
+    loop: true,
+    delay: 50,
+    cb: function(){}
   };
 
 }(jQuery));
