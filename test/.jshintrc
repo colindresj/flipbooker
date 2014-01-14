@@ -14,7 +14,6 @@
   "predef": [
     "jQuery",
     "QUnit",
-    "_",
     "module",
     "test",
     "asyncTest",

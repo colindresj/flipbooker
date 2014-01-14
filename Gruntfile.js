@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     qunit: {
       all: {
         options: {
-          urls: ['1.9.0', '2.0.0b1'].map(function(version){
+          urls: ['1.7.0', '1.8.0', '1.9.0', '1.10.0', '2.0.0',].map(function(version){
             return 'http://localhost:<%= connect.server.options.port %>/test/<%= pkg.name %>.html?jquery=' + version;
           }),
         }
