@@ -1,4 +1,4 @@
-/*! Flipbooker - v0.1.0 - 2014-01-14
+/*! Flipbooker - v0.1.0 - 2014-01-16
 * https://github.com/corporadobob/flipbooker
 * Copyright (c) 2014 JC; Licensed MIT */
 
@@ -82,7 +82,7 @@
   $.flipbooker.defaults = {
     container: '#flipbook',
     loop: true,
-    delay: 50,
+    delay: 100,
     cb: function(){}
   };
 

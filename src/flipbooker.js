@@ -86,7 +86,7 @@
   $.flipbooker.defaults = {
     container: '#flipbook',
     loop: true,
-    delay: 50,
+    delay: 100,
     cb: function(){}
   };
 
