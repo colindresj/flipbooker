@@ -72,6 +72,16 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      source: {
+        files: [
+          {
+            src: 'src/css/<%= pkg.name %>.css',
+            dest: 'dist/css/<%= pkg.name %>.css'
+          }
+        ]
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -95,10 +105,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
   grunt.registerTask('test', ['connect', 'jshint', 'qunit']);
-  grunt.registerTask('default', ['test', 'jshint', 'clean', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify', 'copy']);
 
 };

@@ -1,0 +1,18 @@
+.image-cap {
+  position: absolute;
+  background: black;
+  color: white;
+  padding: 15px;
+}
+.cap-top {
+  top: 10px;
+}
+.cap-bottom {
+  bottom: 10px;
+}
+.cap-left {
+  left: 10px;
+}
+.cap-right {
+  right: 10px;
+}
