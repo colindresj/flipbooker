@@ -1,4 +1,4 @@
-/*! Flipbooker - v0.1.0 - 2014-01-16
+/*! Flipbooker - v0.1.0 - 2014-01-18
 * https://github.com/corporadobob/flipbooker
 * Copyright (c) 2014 JC; Licensed MIT */
 
@@ -40,19 +40,24 @@
         // apply the appropriate caption position
         switch(currentImg.captionPosition)
         {
-        case 'topLeft':
+        case 'Top Left':
+          $caption.removeClass('cap-bottom cap-right');
           $caption.addClass('cap-top cap-left');
           break;
-        case 'topRight':
+        case 'Top Right':
+          $caption.removeClass('cap-bottom cap-left');
           $caption.addClass('cap-top cap-right');
           break;
-        case 'bottomLeft':
+        case 'Bottom Left':
+          $caption.removeClass('cap-top cap-right');
           $caption.addClass('cap-bottom cap-left');
           break;
-        case 'bottomRight':
+        case 'Bottom Right':
+          $caption.removeClass('cap-top cap-left');
           $caption.addClass('cap-bottom cap-right');
           break;
         default:
+          $caption.removeClass('cap-bottom cap-right');
           $caption.addClass('cap-top cap-left');
         }
       } else {
