@@ -53,11 +53,12 @@ cb            | function      | -            | A callback function that is fired
 ###Image Attributes
 A few attributes can be set on the images being passed into Flipbooker.
 
-Name     | Type          | Required? | Description
----------|---------------|-----------|-------------
-href     | string        | Yes       | The image source
-caption  | string        | No        | Text to be overlaid onto the image
-pause    | number        | No        | An amount to pause the image for before flipping to the next one
+Name             | Type          | Required? | Description
+-----------------|---------------|-----------|-------------
+href             | string        | Yes       | The image source
+caption          | string        | No        | Text to be overlaid onto the image
+captionPosition  | string        | No        | The location of your caption ('Top Left', 'Top Right', 'Bottom Left', 'Bottom Right')
+pause            | number        | No        | An amount to pause the image for before flipping to the next one
 
 ###Pausing and Playing
 You can pause and play your presentation by calling the following methods:
