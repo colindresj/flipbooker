@@ -1,8 +1,6 @@
 # Flipbooker
 Create a dynamic flipbook with jQuery.
 
-**This is WIP and not production-ready.**
-
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
@@ -40,16 +38,6 @@ $(function(){
 });
 ```
 
-###Plugin Options
-
-Name          | Type          | Default      | Description
-------------- |---------------| -------------|-------------
-container     | string        | '#flipbook'  | Element selector for your flipbook container
-loop          | boolean       | true         | Run through the presentation in a loop or just a single time
-delay         | number        | 50           | The delay between flipping images
-cb            | function      | -            | A callback function that is fired after a presentation runs through all of its images
-
-
 ###Image Attributes
 A few attributes can be set on the images being passed into Flipbooker.
 
@@ -59,6 +47,15 @@ href             | string        | Yes       | The image source
 caption          | string        | No        | Text to be overlaid onto the image
 captionPosition  | string        | No        | The location of your caption ('Top Left', 'Top Right', 'Bottom Left', 'Bottom Right')
 pause            | number        | No        | An amount to pause the image for before flipping to the next one
+
+###Plugin Options
+
+Name          | Type          | Default      | Description
+------------- |---------------| -------------|-------------
+container     | string        | '#flipbook'  | Element selector for your flipbook container
+loop          | boolean       | true         | Run through the presentation in a loop or just a single time
+delay         | number        | 50           | The delay between flipping images
+cb            | function      | -            | A callback function that is fired after a presentation runs through all of its images
 
 ###Pausing and Playing
 You can pause and play your presentation by calling the following methods:
