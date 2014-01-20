@@ -1,4 +1,4 @@
-/*! Flipbooker - v0.1.0 - 2014-01-20
+/*! Flipbooker - v0.2.0 - 2014-01-20
 * https://github.com/corporadobob/flipbooker
 * Copyright (c) 2014 JC; Licensed MIT */
 
