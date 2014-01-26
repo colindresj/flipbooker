@@ -1,4 +1,4 @@
-/*! Flipbooker - v0.2.0 - 2014-01-20
+/*! Flipbooker - v0.2.0 - 2014-01-26
 * https://github.com/corporadobob/flipbooker
 * Copyright (c) 2014 JC; Licensed MIT */
 
@@ -31,7 +31,7 @@
       // set the image source to the currentImg
       // object's href value and fit it to the container
       currentImg = imgArr[currentIndex];
-      $image.attr('src', currentImg.href);
+      $image[0].src = currentImg.href;
 
       // add the caption text
       if (currentImg.caption) {

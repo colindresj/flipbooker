@@ -35,7 +35,7 @@
       // set the image source to the currentImg
       // object's href value and fit it to the container
       currentImg = imgArr[currentIndex];
-      $image.attr('src', currentImg.href);
+      $image[0].src = currentImg.href;
 
       // add the caption text
       if (currentImg.caption) {
