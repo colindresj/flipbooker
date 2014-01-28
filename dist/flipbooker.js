@@ -1,4 +1,4 @@
-/*! Flipbooker - v0.2.0 - 2014-01-26
+/*! Flipbooker - v0.2.0 - 2014-01-28
 * https://github.com/corporadobob/flipbooker
 * Copyright (c) 2014 JC; Licensed MIT */
 
@@ -7,12 +7,13 @@
   $.flipbooker = function(imgArr, options) {
 
     var opts = $.extend(true, {}, $.flipbooker.defaults, options),
-    currentIndex = 0,
-    $container = $(opts.container),
-    $image,
-    $caption,
-    imgArrSize = imgArr.length,
-    currentImg;
+        currentIndex = 0,
+        $container = $(opts.container),
+        image,
+        $image,
+        $caption,
+        imgArrSize = imgArr.length,
+        currentImg;
 
     // set up the container styles
     $container.css({
@@ -23,15 +24,20 @@
     });
 
     // set up the image element
-    $image = $('<img>').appendTo($container);
+    image = new Image();
+    $image = $(image).appendTo($container);
     $caption = $('<div>').appendTo($container);
 
     function plugin(){
 
       // set the image source to the currentImg
-      // object's href value and fit it to the container
+      // object's href or image.src value and fit it to the container
       currentImg = imgArr[currentIndex];
-      $image[0].src = currentImg.href;
+      if (currentImg.href) {
+        $image[0].src = currentImg.href;
+      } else {
+        image.src = currentImg.image.src;
+      }
 
       // add the caption text
       if (currentImg.caption) {
@@ -65,7 +71,7 @@
       }
 
       // pause if the currentImg object requests it, otherwise
-      // recurseively call the function with the normal delay
+      // recursively call the function with the normal delay
       if (currentImg.pause) {
         looper = setTimeout(plugin, currentImg.pause);
       } else {
