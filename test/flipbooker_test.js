@@ -9,11 +9,31 @@
         {href: "http://placehold.it/350x154"}
       ];
 
+      var image1 = new Image(),
+          image2 = new Image();
+
+      image1.src = 'testing';
+      image2.src = 'testing';
+
+      this.objs_arr = [
+        {image: image1, caption: 'test'},
+        {image: image2, caption: 'test'}
+      ];
+
       this.$container = $('#qunit-fixture');
     }
   });
 
-  test('ovrrides the defaults with options', function() {
+  test('allows a native image object to be passed in as a value mapped to the image key in the array', function() {
+    expect(1);
+    $.flipbooker(this.objs_arr, {
+      container: '#qunit-fixture'
+    });
+
+    ok(this.$container.children('img'), 'creates and image from image objects');
+  });
+
+  test('overrides the defaults with options', function() {
     expect(2);
     $.flipbooker(this.arr, {
       container: '#qunit-fixture'
