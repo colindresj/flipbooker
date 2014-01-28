@@ -43,7 +43,7 @@ A few attributes can be set on the images being passed into Flipbooker:
 
 Name             | Type             | Required? | Description
 -----------------|---------------   |-----------|-------------
-source / *image  | string or object | Yes       | The image source as a string or the native image object
+source / image  | string or object | Yes       | The image source as a string or the *native image object
 caption          | string           | No        | Text to be overlaid onto the image
 captionPosition  | string           | No        | The location of your caption ('Top Left', 'Top Right', 'Bottom Left', 'Bottom Right')
 pause            | number           | No        | An amount to pause the image for before flipping to the next one
