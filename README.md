@@ -41,14 +41,29 @@ $(function(){
 ###Image Attributes
 A few attributes can be set on the images being passed into Flipbooker:
 
-Name             | Type          | Required? | Description
------------------|---------------|-----------|-------------
-href             | string        | Yes       | The image source
-caption          | string        | No        | Text to be overlaid onto the image
-captionPosition  | string        | No        | The location of your caption ('Top Left', 'Top Right', 'Bottom Left', 'Bottom Right')
-pause            | number        | No        | An amount to pause the image for before flipping to the next one
+Name             | Type             | Required? | Description
+-----------------|---------------   |-----------|-------------
+source / *image  | string or object | Yes       | The image source as a string or the native image object
+caption          | string           | No        | Text to be overlaid onto the image
+captionPosition  | string           | No        | The location of your caption ('Top Left', 'Top Right', 'Bottom Left', 'Bottom Right')
+pause            | number           | No        | An amount to pause the image for before flipping to the next one
 
 Captions are styled using the included stylesheet, however the CSS is simple enough to be overriden with your own styles. If you plan on doing so, make sure to maintain the overall `.image-cap` class's position set to absolute.
+
+#####*Native Image Objects
+Instead of passing in a string that points to the image source as shown above, you can alternatively pass in a native HTML image object as the value mapped to the image key. This does require a bit more work, but definitely improves performance. Passing in image objects might look something like this:
+
+```js
+$(function(){
+  var image1 = new Image(), image2 = new Image();
+  image1.src = 'http://placehold.it/350x151', image2.src = 'http://placehold.it/350x152';
+
+  $.flipbooker([
+    { image: image1, caption: 'This is so native', pause: 5000 },
+    { image: image2 }
+  ]);
+});
+```
 
 ###Plugin Options
 There are some overall options that can be passed into flipbooker after the arry of image objects:
@@ -58,6 +73,8 @@ Name          | Type          | Default      | Description
 container     | string        | '#flipbook'  | Element selector for your flipbook container
 loop          | boolean       | true         | Run through the presentation in a loop or just a single time
 delay         | number        | 50           | The delay between flipping images
+height        | string        | '400px'      | The default container height
+width         | string        | '400px'      | The default container width
 cb            | function      | -            | A callback function that is fired after a presentation runs through all of its images
 
 ```js
@@ -66,6 +83,8 @@ $(function(){
     container: '#myContainer',
     loop: false,
     delay: 100,
+    height: '500px',
+    width: '500px',
     cb: function(){
       // your code here
     }
