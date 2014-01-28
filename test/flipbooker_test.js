@@ -3,10 +3,10 @@
   module('jQuery.flipbooker', {
     setup: function() {
       this.arr = [
-        {href: "http://placehold.it/350x151", caption: 'test', pause: 500},
-        {href: "http://placehold.it/350x152", caption: 'test'},
-        {href: "http://placehold.it/350x153", pause: 500},
-        {href: "http://placehold.it/350x154"}
+        {source: "http://placehold.it/350x151", caption: 'test', pause: 500},
+        {source: "http://placehold.it/350x152", caption: 'test'},
+        {source: "http://placehold.it/350x153", pause: 500},
+        {source: "http://placehold.it/350x154"}
       ];
 
       var image1 = new Image(),

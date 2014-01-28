@@ -31,9 +31,9 @@ Flipbooker works by taking an array of image objects, and creates a dynamic flip
 ```js
 $(function(){
   $.flipbooker([
-    { href: "http://placehold.it/350x151", caption: 'This is cool', pause: 5000 },
-    { href: "http://placehold.it/350x152"},
-    { href: "http://placehold.it/350x153"}
+    { source: "http://placehold.it/350x151", caption: 'This is cool', pause: 5000 },
+    { source: "http://placehold.it/350x152"},
+    { source: "http://placehold.it/350x153"}
   ]);
 });
 ```

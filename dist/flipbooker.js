@@ -31,10 +31,10 @@
     function plugin(){
 
       // set the image source to the currentImg
-      // object's href or image.src value and fit it to the container
+      // object's source or image.src value and fit it to the container
       currentImg = imgArr[currentIndex];
-      if (currentImg.href) {
-        $image[0].src = currentImg.href;
+      if (currentImg.source) {
+        $image[0].src = currentImg.source;
       } else {
         image.src = currentImg.image.src;
       }
