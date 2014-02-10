@@ -55,8 +55,7 @@
       }
 
       function applyClasses(captionPosition){
-        var cases;
-        cases = {
+        var cases = {
           'Top Left': function($caption){
             $caption.removeClass('cap-bottom cap-right');
             $caption.addClass('cap-top cap-left');
