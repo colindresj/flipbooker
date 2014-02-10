@@ -1,4 +1,4 @@
-/*! Flipbooker - v0.2.0 - 2014-01-28
+/*! Flipbooker - v0.2.0 - 2014-02-10
 * https://github.com/corporadobob/flipbooker
 * Copyright (c) 2014 JC; Licensed MIT */
 
@@ -44,30 +44,42 @@
         $caption.text(currentImg.caption).addClass('image-cap');
 
         // apply the appropriate caption position
-        switch(currentImg.captionPosition)
-        {
-        case 'Top Left':
-          $caption.removeClass('cap-bottom cap-right');
-          $caption.addClass('cap-top cap-left');
-          break;
-        case 'Top Right':
-          $caption.removeClass('cap-bottom cap-left');
-          $caption.addClass('cap-top cap-right');
-          break;
-        case 'Bottom Left':
-          $caption.removeClass('cap-top cap-right');
-          $caption.addClass('cap-bottom cap-left');
-          break;
-        case 'Bottom Right':
-          $caption.removeClass('cap-top cap-left');
-          $caption.addClass('cap-bottom cap-right');
-          break;
-        default:
-          $caption.removeClass('cap-bottom cap-right');
-          $caption.addClass('cap-top cap-left');
-        }
+        applyClasses(currentImg.captionPosition);
+
       } else {
         $caption.text('').removeClass('image-cap');
+      }
+
+      function applyClasses(captionPosition){
+        var cases;
+        cases = {
+          'Top Left': function($caption){
+            $caption.removeClass('cap-bottom cap-right');
+            $caption.addClass('cap-top cap-left');
+          },
+          'Top Right': function($caption){
+            $caption.removeClass('cap-bottom cap-left');
+            $caption.addClass('cap-top cap-right');
+          },
+          'Bottom Left': function($caption){
+            $caption.removeClass('cap-top cap-right');
+            $caption.addClass('cap-bottom cap-left');
+          },
+          'Bottom Right': function($caption){
+            $caption.removeClass('cap-top cap-left');
+            $caption.addClass('cap-bottom cap-right');
+          },
+          _default: function($caption){
+            $caption.removeClass('cap-bottom cap-right');
+            $caption.addClass('cap-top cap-left');
+          }
+        };
+
+        if (captionPosition) {
+          cases[captionPosition].call(cases, $caption);
+        } else {
+          cases._default($caption);
+        }
       }
 
       // pause if the currentImg object requests it, otherwise

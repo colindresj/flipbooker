@@ -48,30 +48,42 @@
         $caption.text(currentImg.caption).addClass('image-cap');
 
         // apply the appropriate caption position
-        switch(currentImg.captionPosition)
-        {
-        case 'Top Left':
-          $caption.removeClass('cap-bottom cap-right');
-          $caption.addClass('cap-top cap-left');
-          break;
-        case 'Top Right':
-          $caption.removeClass('cap-bottom cap-left');
-          $caption.addClass('cap-top cap-right');
-          break;
-        case 'Bottom Left':
-          $caption.removeClass('cap-top cap-right');
-          $caption.addClass('cap-bottom cap-left');
-          break;
-        case 'Bottom Right':
-          $caption.removeClass('cap-top cap-left');
-          $caption.addClass('cap-bottom cap-right');
-          break;
-        default:
-          $caption.removeClass('cap-bottom cap-right');
-          $caption.addClass('cap-top cap-left');
-        }
+        applyClasses(currentImg.captionPosition);
+
       } else {
         $caption.text('').removeClass('image-cap');
+      }
+
+      function applyClasses(captionPosition){
+        var cases;
+        cases = {
+          'Top Left': function(){
+            $caption.removeClass('cap-bottom cap-right');
+            $caption.addClass('cap-top cap-left');
+          },
+          'Top Right': function(){
+            $caption.removeClass('cap-bottom cap-left');
+            $caption.addClass('cap-top cap-right');
+          },
+          'Bottom Left': function(){
+            $caption.removeClass('cap-top cap-right');
+            $caption.addClass('cap-bottom cap-left');
+          },
+          'Bottom Right': function(){
+            $caption.removeClass('cap-top cap-left');
+            $caption.addClass('cap-bottom cap-right');
+          },
+          _default: function(){
+            $caption.removeClass('cap-bottom cap-right');
+            $caption.addClass('cap-top cap-left');
+          }
+        };
+
+        if (captionPosition) {
+          cases[captionPosition].call(cases);
+        } else {
+          cases._default();
+        }
       }
 
       // pause if the currentImg object requests it, otherwise
