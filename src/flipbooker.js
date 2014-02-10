@@ -57,32 +57,32 @@
       function applyClasses(captionPosition){
         var cases;
         cases = {
-          'Top Left': function(){
+          'Top Left': function($caption){
             $caption.removeClass('cap-bottom cap-right');
             $caption.addClass('cap-top cap-left');
           },
-          'Top Right': function(){
+          'Top Right': function($caption){
             $caption.removeClass('cap-bottom cap-left');
             $caption.addClass('cap-top cap-right');
           },
-          'Bottom Left': function(){
+          'Bottom Left': function($caption){
             $caption.removeClass('cap-top cap-right');
             $caption.addClass('cap-bottom cap-left');
           },
-          'Bottom Right': function(){
+          'Bottom Right': function($caption){
             $caption.removeClass('cap-top cap-left');
             $caption.addClass('cap-bottom cap-right');
           },
-          _default: function(){
+          _default: function($caption){
             $caption.removeClass('cap-bottom cap-right');
             $caption.addClass('cap-top cap-left');
           }
         };
 
         if (captionPosition) {
-          cases[captionPosition].call(cases);
+          cases[captionPosition].call(cases, $caption);
         } else {
-          cases._default();
+          cases._default($caption);
         }
       }
 
