@@ -1,5 +1,6 @@
 # Flipbooker
 [![Build Status](https://travis-ci.org/corporadobob/flipbooker.png?branch=master)](https://travis-ci.org/corporadobob/flipbooker)
+
 Create a dynamic flipbook with jQuery.
 
 ## Getting Started
