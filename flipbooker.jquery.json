@@ -2,11 +2,11 @@
   "name": "flipbooker",
   "title": "Flipbooker",
   "description": "Create a dynamic flipbook",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/corporadobob/flipbooker",
   "author": {
     "name": "JC",
-    "email": "jorge.e.colindres@gmail.com",
+    "email": "j@colindres.me",
     "url": "http://colindres.me"
   },
   "repository": {
