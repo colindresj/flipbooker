@@ -1,6 +1,6 @@
 /*
  * flipbooker
- * https://github.com/corporadobob/flipbooker
+ * https://github.com/colindresj/flipbooker
  *
  * Copyright (c) 2014 JC
  * Licensed under the MIT license.

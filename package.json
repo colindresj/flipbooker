@@ -2,10 +2,10 @@
   "name": "flipbooker",
   "version": "0.3.1",
   "description": "create a dynamic flipbook with jQuery",
-  "homepage": "https://github.com/corporadobob/flipbooker",
+  "homepage": "https://github.com/colindresj/flipbooker",
   "repository": {
     "type": "git",
-    "url": "git://github.com/corporadobob/flipbooker.git"
+    "url": "git://github.com/colindresj/flipbooker.git"
   },
   "author": {
     "name": "JC",
@@ -15,7 +15,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/corporadobob/flipbooker/blob/master/LICENSE-MIT"
+      "url": "https://github.com/colindresj/flipbooker/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {

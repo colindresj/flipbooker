@@ -1,13 +1,13 @@
 # Flipbooker
-[![Build Status](https://travis-ci.org/corporadobob/flipbooker.png?branch=master)](https://travis-ci.org/corporadobob/flipbooker)
+[![Build Status](https://travis-ci.org/colindresj/flipbooker.svg?branch=master)](https://travis-ci.org/colindresj/flipbooker)
 
 Create a dynamic flipbook with jQuery.
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/corporadobob/flipbooker/master/dist/flipbooker.min.js
-[max]: https://raw.github.com/corporadobob/flipbooker/master/dist/flipbooker.js
+[min]: https://raw.github.com/colindresj/flipbooker/master/dist/flipbooker.min.js
+[max]: https://raw.github.com/colindresj/flipbooker/master/dist/flipbooker.js
 
 Create a container somewhere on your page for your flipbook:
 

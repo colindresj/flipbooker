@@ -1,5 +1,5 @@
 /*! Flipbooker - v0.2.0 - 2014-02-10
-* https://github.com/corporadobob/flipbooker
+* https://github.com/colindresj/flipbooker
 * Copyright (c) 2014 JC; Licensed MIT */
 
 (function($) {
